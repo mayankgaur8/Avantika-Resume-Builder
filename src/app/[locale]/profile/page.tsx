@@ -255,14 +255,11 @@ export default function ProfilePage() {
                 <p className="text-xs font-bold text-gray-400 tracking-widest mb-3">{t("modeLabel")}</p>
                 <div className="space-y-2">
                   {[false, true].map((isDark) => (
-                    <label key={String(isDark)} className="flex items-center gap-2 cursor-pointer">
+                    <label key={String(isDark)} onClick={() => setDarkMode(isDark)} className="flex items-center gap-2 cursor-pointer">
                       <span className={`w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors ${darkMode === isDark ? "border-[#00bcd4] bg-[#00bcd4]" : "border-gray-500"}`}>
                         {darkMode === isDark && <span className="w-2 h-2 rounded-full bg-white block" />}
                       </span>
-                      <span
-                        onClick={() => setDarkMode(isDark)}
-                        className={`text-sm font-medium cursor-pointer ${darkMode === isDark ? "text-white" : "text-gray-400"}`}
-                      >
+                      <span className={`text-sm font-medium ${darkMode === isDark ? "text-white" : "text-gray-400"}`}>
                         {isDark ? t("modeDark") : t("modeLight")}
                       </span>
                     </label>

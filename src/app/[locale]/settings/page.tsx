@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { User, Bell, Lock, CreditCard, Trash2, Save } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { mockUser } from "@/lib/mockData";
@@ -12,6 +12,25 @@ export default function SettingsPage() {
   const t = useTranslations("Settings");
   const [activeTab, setActiveTab] = useState<Tab>("profile");
   const [saved, setSaved] = useState(false);
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("avatarPhoto");
+    if (saved) setPhotoPreview(saved);
+  }, []);
+
+  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result as string;
+      localStorage.setItem("avatarPhoto", dataUrl);
+      setPhotoPreview(dataUrl);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const tabs = [
     { key: "profile" as Tab, label: t("tabProfile"), icon: <User size={16} /> },
@@ -54,15 +73,20 @@ export default function SettingsPage() {
                 <div className="space-y-5">
                   <h2 className="text-base font-bold text-gray-800">{t("profileInfo")}</h2>
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-[#1a2332] text-white text-xl font-bold flex items-center justify-center">{mockUser.avatar}</div>
-                    <button className="text-sm font-semibold text-[#00bcd4] hover:underline">{t("changePhoto")}</button>
+                    <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handlePhotoChange} />
+                    {photoPreview ? (
+                      <img src={photoPreview} alt="avatar" className="w-16 h-16 rounded-full object-cover" />
+                    ) : (
+                      <div className="w-16 h-16 rounded-full bg-[#1a2332] text-white text-xl font-bold flex items-center justify-center">{mockUser.avatar}</div>
+                    )}
+                    <button onClick={() => fileInputRef.current?.click()} className="text-sm font-semibold text-[#00bcd4] hover:underline">{t("changePhoto")}</button>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div><label className={lbl}>{t("firstName")}</label><input className={input} defaultValue="Mayank" /></div>
-                    <div><label className={lbl}>{t("lastName")}</label><input className={input} defaultValue="Gaur" /></div>
-                    <div className="col-span-2"><label className={lbl}>{t("emailAddress")}</label><input className={input} type="email" defaultValue={mockUser.email} /></div>
-                    <div className="col-span-2"><label className={lbl}>{t("phoneNumber")}</label><input className={input} defaultValue="+91 9425491136" /></div>
-                    <div className="col-span-2"><label className={lbl}>{t("location")}</label><input className={input} defaultValue="Bengaluru, India" /></div>
+                    <div><label className={lbl}>{t("firstName")}</label><input className={input} defaultValue="Mayank" suppressHydrationWarning /></div>
+                    <div><label className={lbl}>{t("lastName")}</label><input className={input} defaultValue="Gaur" suppressHydrationWarning /></div>
+                    <div className="col-span-2"><label className={lbl}>{t("emailAddress")}</label><input className={input} type="email" defaultValue={mockUser.email} suppressHydrationWarning /></div>
+                    <div className="col-span-2"><label className={lbl}>{t("phoneNumber")}</label><input className={input} defaultValue="+91 9425491136" suppressHydrationWarning /></div>
+                    <div className="col-span-2"><label className={lbl}>{t("location")}</label><input className={input} defaultValue="Bengaluru, India" suppressHydrationWarning /></div>
                   </div>
                 </div>
               )}
@@ -80,9 +104,9 @@ export default function SettingsPage() {
               {activeTab === "security" && (
                 <div className="space-y-5">
                   <h2 className="text-base font-bold text-gray-800">{t("securityTitle")}</h2>
-                  <div><label className={lbl}>{t("currentPassword")}</label><input className={input} type="password" placeholder="••••••••" /></div>
-                  <div><label className={lbl}>{t("newPassword")}</label><input className={input} type="password" placeholder="••••••••" /></div>
-                  <div><label className={lbl}>{t("confirmPassword")}</label><input className={input} type="password" placeholder="••••••••" /></div>
+                  <div><label className={lbl}>{t("currentPassword")}</label><input className={input} type="password" placeholder="••••••••" suppressHydrationWarning /></div>
+                  <div><label className={lbl}>{t("newPassword")}</label><input className={input} type="password" placeholder="••••••••" suppressHydrationWarning /></div>
+                  <div><label className={lbl}>{t("confirmPassword")}</label><input className={input} type="password" placeholder="••••••••" suppressHydrationWarning /></div>
                   <div className="border-t border-gray-100 pt-5">
                     <h3 className="text-sm font-bold text-gray-800 mb-3">{t("dangerZone")}</h3>
                     <button className="flex items-center gap-2 text-red-500 border border-red-200 rounded-xl px-4 py-2 text-sm font-semibold hover:bg-red-50 transition-colors">

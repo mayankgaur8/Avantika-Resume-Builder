@@ -145,6 +145,7 @@ export default function ResumeEditPage({ params }: { params: Promise<{ id: strin
                         value={resume.contact[field] || ""}
                         onChange={(e) => update("contact", { ...resume.contact, [field]: e.target.value })}
                         placeholder={fieldLabel}
+                        suppressHydrationWarning
                       />
                     </div>
                   ))}
