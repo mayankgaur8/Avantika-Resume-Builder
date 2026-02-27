@@ -236,7 +236,6 @@
     "convertToResume": "In Lebenslauf umwandeln",
     "syncWithResume": "Mit Lebenslauf synchronisieren",
     "viewAnalytics": "Analysen anzeigen",
-    "shareProfile": "Profil teilen",
     "unpublishProfile": "Profil deaktivieren",
     "modeLabel": "MODUS",
     "modeLight": "Hell",
@@ -416,5 +415,35 @@
     "terms": "Nutzungsbedingungen",
     "privacy": "Datenschutzrichtlinie",
     "doNotSell": "Meine persönlichen Daten nicht verkaufen oder teilen"
+  },
+  "Login": {
+    "title": "Willkommen zurück",
+    "subtitle": "Melde dich bei deinem Avantika-Konto an",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "signIn": "Anmelden",
+    "noAccount": "Noch kein Konto?",
+    "signUp": "Konto erstellen",
+    "forgotPassword": "Passwort vergessen?",
+    "invalidCredentials": "Ungültige E-Mail oder Passwort",
+    "emailPlaceholder": "du@beispiel.de",
+    "passwordPlaceholder": "Passwort eingeben"
+  },
+  "Register": {
+    "title": "Konto erstellen",
+    "subtitle": "Erstelle deinen perfekten Lebenslauf",
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "signUp": "Konto erstellen",
+    "hasAccount": "Bereits ein Konto?",
+    "signIn": "Anmelden",
+    "passwordMismatch": "Passwörter stimmen nicht überein",
+    "passwordTooShort": "Passwort muss mindestens 6 Zeichen lang sein",
+    "namePlaceholder": "Dein vollständiger Name",
+    "emailPlaceholder": "du@beispiel.de",
+    "passwordPlaceholder": "Passwort erstellen",
+    "confirmPlaceholder": "Passwort wiederholen"
   }
 }

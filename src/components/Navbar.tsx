@@ -1,18 +1,35 @@
 "use client";
 
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { Bell, ChevronDown, Settings, HelpCircle, MessageCircle, LogOut, Crown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { mockUser } from "@/lib/mockData";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { getStoredUser, logout } from "@/lib/auth";
 
 export default function Navbar() {
   const t = useTranslations("Nav");
   const pathname = usePathname();
+  const router = useRouter();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [authName, setAuthName]     = useState<string | null>(null);
+  const [authEmail, setAuthEmail]   = useState<string | null>(null);
+  const [authAvatar, setAuthAvatar] = useState<string | null>(null);
+  const [avatarPhoto, setAvatarPhoto] = useState<string | null>(null);
+
+  useEffect(() => {
+    const user = getStoredUser();
+    if (user) { setAuthName(user.name); setAuthEmail(user.email); setAuthAvatar(user.avatar); }
+    const photo = localStorage.getItem("avatarPhoto");
+    if (photo) setAvatarPhoto(photo);
+  }, []);
+
+  const displayName   = authName   ?? mockUser.name;
+  const displayEmail  = authEmail  ?? mockUser.email;
+  const displayAvatar = authAvatar ?? mockUser.avatar;
 
   const navLinks = [
     { label: t("dashboard"), href: "/dashboard" },
@@ -31,6 +48,11 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
+
+  const handleSignOut = () => {
+    logout();
+    router.replace("/login");
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 h-16">
@@ -64,7 +86,6 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-3 shrink-0">
-          {/* Language Switcher — always visible */}
           <LanguageSwitcher />
 
           {mockUser.plan === "free" && (
@@ -86,18 +107,22 @@ export default function Navbar() {
               onClick={() => setDropdownOpen((o) => !o)}
               className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
             >
-              <div className="w-8 h-8 rounded-full bg-[#1a2332] text-white text-xs font-bold flex items-center justify-center">
-                {mockUser.avatar}
-              </div>
-              <span className="text-sm font-medium">{mockUser.name}</span>
+              {avatarPhoto ? (
+                <img src={avatarPhoto} alt="avatar" className="w-8 h-8 rounded-full object-cover" />
+              ) : (
+                <div className="w-8 h-8 rounded-full bg-[#1a2332] text-white text-xs font-bold flex items-center justify-center">
+                  {displayAvatar}
+                </div>
+              )}
+              <span className="text-sm font-medium">{displayName}</span>
               <ChevronDown size={14} className={cn("transition-transform", dropdownOpen && "rotate-180")} />
             </button>
 
             {dropdownOpen && (
               <div className="absolute right-0 top-full mt-2 w-52 bg-white border border-gray-100 rounded-xl shadow-lg py-1 z-50">
                 <div className="px-4 py-3 border-b border-gray-100">
-                  <p className="text-sm font-bold text-gray-800">{mockUser.name}</p>
-                  <p className="text-xs text-gray-400">{mockUser.email}</p>
+                  <p className="text-sm font-bold text-gray-800">{displayName}</p>
+                  <p className="text-xs text-gray-400">{displayEmail}</p>
                   <span className="inline-block mt-1 text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full font-medium capitalize">
                     {t("currentPlan", { plan: mockUser.plan })}
                   </span>
@@ -115,7 +140,7 @@ export default function Navbar() {
                   <MessageCircle size={15} /> {t("contact")}
                 </Link>
                 <div className="border-t border-gray-100 mt-1">
-                  <button className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors">
+                  <button onClick={handleSignOut} className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors">
                     <LogOut size={15} /> {t("signOut")}
                   </button>
                 </div>

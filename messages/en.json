@@ -236,7 +236,6 @@
     "convertToResume": "Convert to resume",
     "syncWithResume": "Sync with resume",
     "viewAnalytics": "View Analytics",
-    "shareProfile": "Share Profile",
     "unpublishProfile": "Unpublish profile",
     "modeLabel": "MODE",
     "modeLight": "Light",
@@ -416,5 +415,35 @@
     "terms": "Terms Of Service",
     "privacy": "Privacy Policy",
     "doNotSell": "Do Not Sell Or Share My Personal Information"
+  },
+  "Login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to your Avantika account",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "noAccount": "Don't have an account?",
+    "signUp": "Create account",
+    "forgotPassword": "Forgot password?",
+    "invalidCredentials": "Invalid email or password",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "Enter your password"
+  },
+  "Register": {
+    "title": "Create your account",
+    "subtitle": "Start building your perfect resume",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "Create Account",
+    "hasAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "Create a password",
+    "confirmPlaceholder": "Repeat your password"
   }
 }
