@@ -231,7 +231,18 @@
     "about": "Über mich",
     "topSkills": "Hauptfähigkeiten",
     "contact": "Kontakt",
-    "visitors": "Besucher"
+    "visitors": "Besucher",
+    "profileActions": "PROFILAKTIONEN",
+    "convertToResume": "In Lebenslauf umwandeln",
+    "syncWithResume": "Mit Lebenslauf synchronisieren",
+    "viewAnalytics": "Analysen anzeigen",
+    "shareProfile": "Profil teilen",
+    "unpublishProfile": "Profil deaktivieren",
+    "modeLabel": "MODUS",
+    "modeLight": "Hell",
+    "modeDark": "Dunkel",
+    "designTemplates": "Design-Vorlagen",
+    "unpublishConfirm": "Profil deaktivieren? Es wird für Arbeitgeber nicht mehr sichtbar sein."
   },
   "Pricing": {
     "title": "Wählen Sie Ihren Plan",

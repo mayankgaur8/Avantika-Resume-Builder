@@ -231,7 +231,18 @@
     "about": "About",
     "topSkills": "Top Skills",
     "contact": "Contact",
-    "visitors": "Visitors"
+    "visitors": "Visitors",
+    "profileActions": "PROFILE ACTIONS",
+    "convertToResume": "Convert to resume",
+    "syncWithResume": "Sync with resume",
+    "viewAnalytics": "View Analytics",
+    "shareProfile": "Share Profile",
+    "unpublishProfile": "Unpublish profile",
+    "modeLabel": "MODE",
+    "modeLight": "Light",
+    "modeDark": "Dark",
+    "designTemplates": "Design Templates",
+    "unpublishConfirm": "Unpublish your profile? It will no longer be visible to employers."
   },
   "Pricing": {
     "title": "Choose Your Plan",
