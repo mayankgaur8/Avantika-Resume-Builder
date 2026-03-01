@@ -131,6 +131,10 @@ export default function AboutPage() {
                 <a href="mailto:support@avantika-resume-builder.com" className="text-xs text-[#00bcd4] underline">
                   support@avantika-resume-builder.com
                 </a>
+                <span className="text-xs text-gray-400">|</span>
+                <a href="mailto:mayankopportunity@gmail.com" className="text-xs text-[#00bcd4] underline">
+                  mayankopportunity@gmail.com
+                </a>
               </div>
             </div>
           </div>

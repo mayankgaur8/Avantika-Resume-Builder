@@ -190,7 +190,7 @@ export default function TermsPage() {
               These Terms are governed by the laws of <strong>India</strong>, without regard to conflict of law provisions. Any disputes arising from or relating to these Terms or the Service shall be subject to the exclusive jurisdiction of the courts located in <strong>Bengaluru, Karnataka, India</strong>.
             </p>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Before initiating legal proceedings, we encourage you to contact us at <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#00bcd4] underline">{SUPPORT_EMAIL}</a> to resolve disputes amicably within 30 days.
+              Before initiating legal proceedings, we encourage you to contact us at <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#00bcd4] underline">{SUPPORT_EMAIL}</a> or <a href="mailto:mayankopportunity@gmail.com" className="text-[#00bcd4] underline">mayankopportunity@gmail.com</a> to resolve disputes amicably within 30 days.
             </p>
           </section>
 
@@ -204,6 +204,7 @@ export default function TermsPage() {
               <p><strong>Business Name:</strong> {BUSINESS_NAME}</p>
               <p><strong>Owner:</strong> {OWNER_NAME}</p>
               <p><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#00bcd4] underline">{SUPPORT_EMAIL}</a></p>
+              <p><strong>Alt Email:</strong> <a href="mailto:mayankopportunity@gmail.com" className="text-[#00bcd4] underline">mayankopportunity@gmail.com</a></p>
               <p><strong>Website:</strong> <a href={WEBSITE} className="text-[#00bcd4] underline">{WEBSITE}</a></p>
             </div>
           </section>

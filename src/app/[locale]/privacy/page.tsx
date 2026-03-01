@@ -179,6 +179,7 @@ export default function PrivacyPolicyPage() {
               <p><strong>Business Name:</strong> {BUSINESS_NAME}</p>
               <p><strong>Owner:</strong> {OWNER_NAME}</p>
               <p><strong>Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#00bcd4] underline">{SUPPORT_EMAIL}</a></p>
+              <p><strong>Alt Email:</strong> <a href="mailto:mayankopportunity@gmail.com" className="text-[#00bcd4] underline">mayankopportunity@gmail.com</a></p>
               <p><strong>Website:</strong> <a href={WEBSITE} className="text-[#00bcd4] underline">{WEBSITE}</a></p>
             </div>
             <p className="text-gray-500 text-xs mt-4">

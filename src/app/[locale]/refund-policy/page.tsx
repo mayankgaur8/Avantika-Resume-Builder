@@ -198,6 +198,7 @@ export default function RefundPolicyPage() {
               <p><strong>Business Name:</strong> {BUSINESS_NAME}</p>
               <p><strong>Owner:</strong> {OWNER_NAME}</p>
               <p><strong>Refund Email:</strong> <a href={`mailto:${SUPPORT_EMAIL}`} className="text-[#00bcd4] underline">{SUPPORT_EMAIL}</a></p>
+              <p><strong>Alt Email:</strong> <a href="mailto:mayankopportunity@gmail.com" className="text-[#00bcd4] underline">mayankopportunity@gmail.com</a></p>
               <p><strong>Response Time:</strong> Within 2 business days</p>
               <p><strong>Support Hours:</strong> Monday – Saturday, 9:00 AM – 6:00 PM IST</p>
               <p><strong>Website:</strong> <a href={WEBSITE} className="text-[#00bcd4] underline">{WEBSITE}</a></p>
