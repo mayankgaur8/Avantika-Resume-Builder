@@ -116,8 +116,8 @@ export default function AboutPage() {
         <div className="mb-14">
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Who Built This</h2>
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#00bcd4] to-[#1a2332] flex items-center justify-center text-white text-2xl font-bold shrink-0">
-              MG
+            <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-gray-100 shadow-sm">
+              <img src="/mayank.jpg" alt="Mayank Gaur" className="w-full h-full object-cover object-top" />
             </div>
             <div>
               <h3 className="text-lg font-bold text-gray-900">Mayank Gaur</h3>
