@@ -12,6 +12,7 @@ export default function Footer() {
     { label: t("contact"), href: "/contact" },
     { label: t("terms"), href: "/terms" },
     { label: t("privacy"), href: "/privacy" },
+    { label: t("refund"), href: "/refund-policy" },
     { label: t("doNotSell"), href: "/privacy#do-not-sell" },
   ];
 
